@@ -1,0 +1,329 @@
+.Button {
+  font: var(--component-button-base-typography);
+  border-radius: var(--component-button-base-border-radius);
+
+  @apply flex;
+
+  svg {
+    min-width: var(--sizing-icon-size-md);
+    min-height: var(--sizing-icon-size-md);
+  }
+
+  &:focus-visible {
+    outline: var(--component-button-base-focus-ring);
+  }
+}
+
+.cloak {
+  visibility: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sizeSmall {
+  gap: var(--component-button-variants-size-small-gap);
+  padding-top: var(--component-button-variants-size-small-padding-top);
+  padding-right: var(--component-button-variants-size-small-padding-right);
+  padding-bottom: var(--component-button-variants-size-small-padding-bottom);
+  padding-left: var(--component-button-variants-size-small-padding-left);
+
+  .cloak {
+    gap: var(--component-button-variants-size-small-gap);
+  }
+
+  svg {
+    width: var(--component-button-variants-size-small-icon-size);
+    height: var(--component-button-variants-size-small-icon-size);
+  }
+}
+
+.sizeMedium {
+  gap: var(--component-button-variants-size-medium-gap);
+  padding-top: var(--component-button-variants-size-medium-padding-top);
+  padding-right: var(--component-button-variants-size-medium-padding-right);
+  padding-bottom: var(--component-button-variants-size-medium-padding-bottom);
+  padding-left: var(--component-button-variants-size-medium-padding-left);
+
+  .cloak {
+    gap: var(--component-button-variants-size-medium-gap);
+  }
+
+  svg {
+    width: var(--component-button-variants-size-medium-icon-size);
+    height: var(--component-button-variants-size-medium-icon-size);
+  }
+}
+
+.sizeLarge {
+  gap: var(--component-button-variants-size-large-gap);
+  padding-top: var(--component-button-variants-size-large-padding-top);
+  padding-right: var(--component-button-variants-size-large-padding-right);
+  padding-bottom: var(--component-button-variants-size-large-padding-bottom);
+  padding-left: var(--component-button-variants-size-large-padding-left);
+
+  .cloak {
+    gap: var(--component-button-variants-size-medium-gap);
+  }
+
+  svg {
+    width: var(--component-button-variants-size-medium-icon-size);
+    height: var(--component-button-variants-size-medium-icon-size);
+  }
+}
+
+.intentPrimary {
+  background-color: var(
+    --component-button-variants-intent-primary-default-background
+  );
+  color: var(--component-button-variants-intent-primary-default-foreground);
+
+  &:hover:not(:disabled) {
+    background: var(
+      --component-button-variants-intent-primary-hover-background
+    );
+    color: var(--component-button-variants-intent-primary-hover-foreground);
+  }
+
+  &:active {
+    background: var(
+      --component-button-variants-intent-primary-active-background
+    );
+    color: var(--component-button-variants-intent-primary-active-foreground);
+  }
+
+  &:focus-visible {
+    background: var(
+      --component-button-variants-intent-primary-focused-background
+    );
+    color: var(--component-button-variants-intent-primary-focused-foreground);
+  }
+
+  &:disabled {
+    background: var(
+      --component-button-variants-intent-primary-disabled-background
+    );
+    color: var(--component-button-variants-intent-primary-disabled-foreground);
+  }
+}
+
+.intentStandard {
+  background: var(
+    --component-button-variants-intent-standard-default-background
+  );
+  color: var(--component-button-variants-intent-standard-default-foreground);
+
+  &:hover:not(:disabled) {
+    background: var(
+      --component-button-variants-intent-standard-hover-background
+    );
+    color: var(--button-variants-intent-standard-hover-foreground);
+  }
+
+  &:active {
+    background: var(
+      --component-button-variants-intent-standard-active-background
+    );
+    color: var(--component-button-variants-intent-standard-active-foreground);
+  }
+
+  &:focus-visible {
+    background: var(
+      --component-button-variants-intent-standard-focused-background
+    );
+    color: var(--component-button-variants-intent-standard-focused-foreground);
+  }
+
+  &:disabled {
+    background: var(
+      --component-button-variants-intent-standard-disabled-background
+    );
+    color: var(--component-button-variants-intent-standard-disabled-foreground);
+  }
+
+  .intentOutline {
+    background: var(
+      --component-button-variants-intent-outline-default-background
+    );
+    color: var(--component-button-variants-intent-outline-default-foreground);
+    border: var(--component-button-variants-intent-outline-default-border);
+
+    &:hover:not(:disabled) {
+      background: var(
+        --component-button-variants-intent-outline-hover-background
+      );
+      border: var(--component-button-variants-intent-outline-hover-border);
+      color: var(--component-button-variants-intent-outline-hover-foreground);
+    }
+
+    &:active {
+      background: var(
+        --component-button-variants-intent-outline-active-background
+      );
+      border: var(--component-button-variants-intent-outline-active-border);
+      color: var(--component-button-variants-intent-outline-active-foreground);
+    }
+
+    &:focus-visible {
+      background: var(
+        --component-button-variants-intent-outline-focused-background
+      );
+      color: var(--component-button-variants-intent-outline-focused-foreground);
+    }
+
+    &:disabled {
+      background: var(
+        --component-button-variants-intent-outline-disabled-background
+      );
+      color: var(
+        --component-button-variants-intent-outline-disabled-foreground
+      );
+      border: var(--component-button-variants-intent-outline-disabled-border);
+    }
+  }
+
+  .intentPlain {
+    background: var(
+      --component-button-variants-intent-plain-default-background
+    );
+    color: var(--component-button-variants-intent-plain-default-foreground);
+
+    &:hover:not(:disabled) {
+      background: var(
+        --component-button-variants-intent-plain-hover-background
+      );
+      color: var(--component-button-variants-intent-plain-hover-foreground);
+    }
+
+    &:active {
+      background: var(--button-variants-intent-plain-active-background);
+      color: var(--component-button-variants-intent-plain-active-foreground);
+    }
+
+    &:focus-visible {
+      background: var(
+        --component-button-variants-intent-plain-focused-background
+      );
+      color: var(--component-button-variants-intent-plain-focused-foreground);
+      outline: none;
+    }
+
+    &:disabled {
+      background: var(
+        --component-button-variants-intent-plain-disabled-background
+      );
+      color: var(--button-variants-intent-plain-disabled-foreground);
+    }
+  }
+
+  .isLoading {
+    cursor: progress;
+    pointer-events: none;
+
+    .spinner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+    }
+  }
+
+  .onlyIconLarge {
+    padding-bottom: var(
+      --component-button-compound-variants-only-icon-size-true-large-padding-bottom
+    );
+    padding-left: var(
+      --component-button-compound-variants-only-icon-size-true-large-padding-left
+    );
+    padding-right: var(
+      --component-button-compound-variants-only-icon-size-true-large-padding-right
+    );
+    padding-top: var(
+      --component-button-compound-variants-only-icon-size-true-large-padding-top
+    );
+    svg {
+      margin: 2px;
+    }
+  }
+
+  .onlyIconMedium {
+    padding-bottom: var(
+      --component-button-compound-variants-only-icon-size-true-medium-padding-bottom
+    );
+    padding-left: var(
+      --component-button-compound-variants-only-icon-size-true-medium-padding-left
+    );
+    padding-right: var(
+      --component-button-compound-variants-only-icon-size-true-medium-padding-right
+    );
+    padding-top: var(
+      --component-button-compound-variants-only-icon-size-true-medium-padding-top
+    );
+    svg {
+      margin: 2px;
+    }
+  }
+
+  .onlyIconSmall {
+    padding-bottom: var(
+      --component-button-compound-variants-only-icon-size-true-small-padding-bottom
+    );
+    padding-left: var(
+      --component-button-compound-variants-only-icon-size-true-small-padding-left
+    );
+    padding-right: var(
+      --component-button-compound-variants-only-icon-size-true-small-padding-right
+    );
+    padding-top: var(
+      --component-button-compound-variants-only-icon-size-true-small-padding-top
+    );
+    svg {
+      margin: 4px;
+    }
+  }
+
+  .startIconSizeLarge {
+    padding-left: var(
+      --component-button-compound-variants-start-icon-size-true-large-padding-left
+    );
+  }
+
+  .startIconSizeMedium {
+    padding-left: var(
+      --component-button-compound-variants-start-icon-size-true-medium.padding-left
+    );
+  }
+
+  .startIconSizeSmall {
+    padding-left: var(
+      --component-button-compound-variants-start-icon-size-true-small-padding-left
+    );
+  }
+
+  .endIconSizeLarge {
+    padding-right: var(
+      --component-button-compound-variants-end-icon-size-true-large-padding-right
+    );
+  }
+
+  .endIconSizeMedium {
+    padding-right: var(
+      --component-button-compound-variants-end-icon-size-true-medium-padding-right
+    );
+  }
+
+  .endIconSizeSmall {
+    padding-right: var(
+      --component-button-compound-variants-end-icon-size-true-small-padding-right
+    );
+  }
+
+  .simpleIntentSize {
+    padding-left: var(
+      --component-button-compound-variants-simple-intent-size-true-plain-all-padding-left
+    );
+    padding-right: var(
+      --component-button-compound-variants-simple-intent-size-true-plain-all-padding-right
+    );
+  }
+}

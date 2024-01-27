@@ -1,0 +1,24 @@
+{
+  "name": "@quin/corpus",
+  "packageManager": "yarn@4.0.2",
+  "scripts": {
+    "build:themes": "node ./scripts/build-themes.mjs"
+  },
+  "main": "index.ts",
+  "devDependencies": {
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "prettier": "^3.2.4",
+    "style-dictionary": "^3.9.2",
+    "style-dictionary-utils": "^2.0.7",
+    "tailwindcss": "^3.4.1",
+    "token-transformer": "^0.0.33"
+  },
+  "dependencies": {
+    "@fontsource-variable/mulish": "^5.0.16",
+    "@fontsource/gentium-book-basic": "^5.0.5",
+    "class-variance-authority": "^0.7.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
