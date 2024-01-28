@@ -1,5 +1,8 @@
 {
   "registrationForm": {
-    "firstName": "Voornaam"
+    "firstName": {
+      "label": "First name",
+      "placeholder": "Your first name"
+    }
   }
 }

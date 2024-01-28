@@ -3,16 +3,15 @@ import { useTranslation } from 'react-i18next'
 
 export default function RegistrationPage() {
   const { t } = useTranslation('common')
-  console.log('registration page ', t('registrationForm.firstName'))
   return (
     <Form id="contact-form" method="post">
       <label>
-        <span>{t('registrationForm.firstName')}</span>
+        <span>{t('registrationForm.firstName.label')}</span>
         <input
-          aria-label="First name"
+          aria-label={t('registrationForm.firstName.label')}
           name="first"
           type="text"
-          placeholder="First"
+          placeholder={t('registrationForm.firstName.placeholder')}
         />
       </label>
       <p>

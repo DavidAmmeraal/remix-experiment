@@ -26,6 +26,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^14.0.1",
+    "remix-auth": "^3.6.0",
+    "remix-auth-keycloak": "^1.2.0",
     "remix-i18next": "^5.5.0"
   },
   "devDependencies": {

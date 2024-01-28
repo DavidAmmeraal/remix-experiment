@@ -13,14 +13,13 @@ import {
   useLoaderData,
 } from '@remix-run/react'
 import { LoaderFunctionArgs } from '@remix-run/node'
-import i18next from './i18next.server'
 import { useTranslation } from 'react-i18next'
-import * as remixI18Next from 'remix-i18next'
-
-const { useChangeLanguage } = remixI18Next
+import { extractLanguageFromRequest } from './i18n/utils'
+import { useChangeLanguage } from 'remix-i18next'
+import PageLayoutWithHeader from './layout/PageLayoutWithHeader'
 
 export async function loader({ request }: LoaderFunctionArgs) {
-  const locale = await i18next.getLocale(request)
+  const locale = await extractLanguageFromRequest(request)
   return json({ locale })
 }
 
@@ -47,7 +46,6 @@ export default function App() {
   // language, this locale will change and i18next will load the correct
   // translation files
   useChangeLanguage(locale)
-
   return (
     <html lang={locale} dir={i18n.dir()}>
       <head>
@@ -57,7 +55,9 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
+        <PageLayoutWithHeader>
+          <Outlet />
+        </PageLayoutWithHeader>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
