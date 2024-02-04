@@ -2,13 +2,16 @@
 export default {
   ignoredRouteFiles: ['**/.*'],
   serverDependenciesToBundle: [
-    /^@quin\/corpus/,
+    /@quin\//,
     'remix-i18next',
     'accept-language-parser',
+    'openapi-fetch',
   ],
   watchPaths: ['../../packages/corpus'],
-  // appDirectory: "app",
-  // assetsBuildDirectory: "public/build",
-  // publicPath: "/build/",
-  // serverBuildPath: "build/index.js",
+  serverModuleFormat: 'esm',
+  serverPlatform: 'node',
+  appDirectory: 'app',
+  asetsBuildDirectory: 'public/build',
+  publicPath: '/build/',
+  serverBuildPath: 'build/index.js',
 }

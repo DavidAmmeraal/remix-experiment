@@ -56,7 +56,7 @@ function handleBotRequest(
     let shellRendered = false
     const { pipe, abort } = renderToPipeableStream(
       <RemixServer
-        context={remixContext}
+        context={{ ...remixContext }}
         url={request.url}
         abortDelay={ABORT_DELAY}
       />,
@@ -106,8 +106,6 @@ async function handleBrowserRequest(
 
   const lng = await extractLanguageFromRequest(request)
   const ns = i18next.getRouteNamespaces(remixContext)
-
-  console.log('lng = ', lng)
 
   await instance
     .use(initReactI18next) // Tell our instance to use react-i18next

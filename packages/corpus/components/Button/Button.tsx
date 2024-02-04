@@ -1,5 +1,6 @@
 import { VariantProps, cva } from 'class-variance-authority'
 import styles from './Button.module.css'
+import { PropsWithChildren } from 'react'
 
 const buttonClasses = cva([styles.Button], {
   variants: {
@@ -86,7 +87,7 @@ const buttonClasses = cva([styles.Button], {
 
 type ButtonVariantProps = VariantProps<typeof buttonClasses>
 
-export interface ButtonProps {
+export interface ButtonProps extends PropsWithChildren {
   size?: ButtonVariantProps['size']
   intent?: ButtonVariantProps['intent']
   isLoading?: ButtonVariantProps['isLoading']
@@ -94,6 +95,7 @@ export interface ButtonProps {
   startIcon?: ButtonVariantProps['startIcon']
   endIcon?: ButtonVariantProps['endIcon']
   simple?: ButtonVariantProps['simple']
+  formAction?: string
 }
 
 export function Button({
@@ -104,6 +106,7 @@ export function Button({
   startIcon,
   endIcon,
   simple,
+  children,
 }: ButtonProps) {
   return (
     <button
@@ -116,9 +119,15 @@ export function Button({
         endIcon,
         simple,
       })}
-      type="button"
     >
-      <span className={styles.cloak}></span>x
+      {isLoading && (
+        <>
+          <span className={styles.cloak} aria-hidden>
+            {children}
+          </span>
+        </>
+      )}
+      {children}
     </button>
   )
 }
