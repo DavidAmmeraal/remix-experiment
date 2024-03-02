@@ -1,0 +1,42 @@
+import z from 'zod'
+import { QuinPatientSessionData } from '~/session/session.server'
+
+/*
+const TokenResponseSchema = z
+  .object({
+    access_token: z.string(),
+    refresh_token: z.string(),
+    expires_in: z.number(),
+    refresh_expires_in: z.number(),
+  })
+  .transform(data => {
+    return {
+      accessToken: data.access_token,
+      refreshToken: data.refresh_token,
+      expires: Date.now() + data.expires_in * 1000,
+      refreshExpires: Date.now() + data.refresh_expires_in * 1000,
+    }
+  })
+
+/*
+export const refreshToken = async (token: QuinPatientSessionData['user']): Promise<TokenEntry> => {
+  const keycloakUrl = new URL(
+    `https://${AUTH_KEYCLOAK_DOMAIN}/realms/${AUTH_KEYCLOAK_REALM}/protocol/openid-connect/token`,
+  )
+  const rawResponse = await fetch(keycloakUrl.toString(), {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: new URLSearchParams({
+      grant_type: 'refresh_token',
+      refresh_token: token.refreshToken,
+      client_id: AUTH_KEYCLOAK_CLIENT_ID,
+    }),
+  })
+
+  const json = await rawResponse.json()
+  const tokenResponse = TokenResponseSchema.parse(json)
+  return tokenResponse
+}
+*/

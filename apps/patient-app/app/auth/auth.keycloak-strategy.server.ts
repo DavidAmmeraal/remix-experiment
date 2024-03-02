@@ -19,7 +19,8 @@ export interface KeycloakStrategyOptions {
 export interface KeycloakExtraParams extends Record<string, string | number> {
   id_token: string
   scope: string
-  expires_in: 86_400
+  expires_in: number
+  refresh_expires_in: number
   token_type: 'Bearer'
 }
 
@@ -86,7 +87,7 @@ export class KeycloakStrategy<User> extends OAuth2Strategy<
 
     this.name = options.name
     this.userInfoURL = `${host}/realms/${options.realm}/protocol/openid-connect/userinfo`
-    this.scope = options.scope || 'openid profile email'
+    this.scope = options.scope || 'openid'
   }
 
   // We override the protected authorizationParams method to return a new
@@ -94,11 +95,6 @@ export class KeycloakStrategy<User> extends OAuth2Strategy<
   // Here we add the scope so Auth0 can use it, you can pass any extra param
   // you need to send to the authorizationURL here base on your provider.
   protected authorizationParams(params: URLSearchParams) {
-    const redirectURL = new URL(this.callbackURL)
-    const internalRedirect = params.get('redirect')
-    if (internalRedirect) {
-      redirectURL.searchParams.set('internal_redirect', internalRedirect)
-    }
     const urlSearchParams: Record<string, string> = {
       scope: this.scope,
       ui_locales: params.get('locale') || 'en',

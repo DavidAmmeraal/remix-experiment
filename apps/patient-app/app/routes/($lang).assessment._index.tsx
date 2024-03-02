@@ -1,18 +1,14 @@
-import { createApiClient } from '@quin/patient-service-api'
-import { LoaderFunctionArgs, redirect } from '@remix-run/node'
-import { authenticator } from '~/auth/auth.server'
+import { LoaderFunctionArgs } from '@remix-run/node'
+import { authenticatedLoader } from '~/auth/authenticatedLoader'
 
 export async function loader({ request }: LoaderFunctionArgs) {
-  const isAuthenticated = await authenticator.isAuthenticated(request)
-  if (!isAuthenticated) {
-    return redirect('signed-out')
-  }
-
-  const api = createApiClient({ baseUrl: 'https://google.nl' })
+  await authenticatedLoader(request, {
+    failureRedirect: 'signed-out',
+  })
 
   return true
 }
 
 export default function AssessmentPage() {
-  return <div>assessment</div>
+  return <div>assessment here</div>
 }

@@ -13,11 +13,16 @@ type CreateApiClientOptions = {
 
 const methods = ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'] as const
 
-export const createApiClient = ({
+export const createApiClient = async ({
   headers = {},
   baseUrl,
 }: CreateApiClientOptions) => {
   const clientMethods = createClient<paths>({ baseUrl })
+
+  const data = await clientMethods.GET('/patients/self')
+
+  /*
+
   const applyHeaders = () =>
     Object.entries(headers).reduce(
       (acc, [key, setter]) => ({ ...acc, [key]: setter() }),
@@ -40,4 +45,5 @@ export const createApiClient = ({
     },
     {} as typeof clientMethods,
   )
+  */
 }
